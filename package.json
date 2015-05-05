@@ -1,0 +1,27 @@
+{
+  "name": "bootstylus-starter",
+  "version": "1.0.0",
+  "description": "- a starter kit using jade, and bootstrap-stylus",
+  "main": "index.html",
+  "scripts": {
+    "test": "are we golden?"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Cutcopy/bootstylus-starter"
+  },
+  "author": "Bryce Stradling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cutcopy/bootstylus-starter/issues"
+  },
+  "homepage": "https://github.com/Cutcopy/bootstylus-starter",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-autowatch": "^1.0.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jade": "^1.0.0",
+    "gulp-stylus": "^2.0.1",
+    "imagemin-pngquant": "^4.1.0"
+  }
+}
