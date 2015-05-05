@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var stylus = require('gulp-stylus');
+var autoprefixer = require('gulp-autoprefixer');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var autowatch = require('gulp-autowatch');
@@ -22,7 +23,17 @@ gulp.task('stylus', function () {
     .pipe(stylus())
     .pipe(gulp.dest('./css/'));
 });
-  
+
+// autoprefixer
+gulp.task('autoprefix', function () {
+    return gulp.src('./css/')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./css/'));
+});
+
 // compress 
 gulp.task('compress', function () {
   gulp.src('./stylus/main.styl')
@@ -48,12 +59,15 @@ gulp.task('imagemin', function () {
 // value = glob or array of globs to watch 
 var paths = {
   stylus: './stylus/**/*.styl',
-  jade: './jade**/*.html',
+  jade: './jade/**/*.html',
 };
-  
+
 gulp.task('watch', function() {
   autowatch(gulp, paths);
 });
 
 
-gulp.task('default', ['templates', 'stylus', 'compress', 'imagemin','watch']);
+
+
+
+gulp.task('default', ['templates', 'stylus', 'autoprefix', 'compress', 'imagemin','watch']);
